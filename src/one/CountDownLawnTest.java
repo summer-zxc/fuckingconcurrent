@@ -1,7 +1,6 @@
+package one;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
-
-import ga.hello2;
 
 public class CountDownLawnTest {
 	public long timeTasks(int nThreads, final Runnable task) throws InterruptedException {
