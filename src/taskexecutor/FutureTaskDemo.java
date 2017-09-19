@@ -39,6 +39,7 @@ public class FutureTaskDemo {
 			Future<String> future = cs.take();
 			System.out.println(future.get());
 		}
+		es.shutdown();
 	}
 
 	public static void main(String[] args) {
