@@ -6,6 +6,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * 带有中断的消费者模型
+ * 
  * @author liufanwen
  *
  * @date:2017年9月22日
@@ -24,6 +25,9 @@ public class BrokenPrimeProducee extends Thread {
 			while (!cancelled) {
 				queue.put(bi.nextProbablePrime());
 			}
+			while (Thread.currentThread().isInterrupted()) {
+				queue.put(bi.nextProbablePrime());
+			}
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -31,6 +35,10 @@ public class BrokenPrimeProducee extends Thread {
 
 	public void cancel() {
 		cancelled = true;
+	}
+
+	public void interruptu() {
+		interrupt();
 	}
 
 	void consumePrimes() throws InterruptedException {
