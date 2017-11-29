@@ -28,6 +28,7 @@ public class Counter {
 			}
 		}
 	}
+
 	private void safeCount2() {
 		lock.lock();
 		i++;
@@ -35,9 +36,8 @@ public class Counter {
 	}
 
 	private void count() {
-		lock.lock();
+
 		i++;
-		lock.unlock();
 	}
 
 	public static void main(String[] args) throws InterruptedException {
